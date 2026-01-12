@@ -1,0 +1,102 @@
+For this part of the project I used https://www.kaggle.com/datasets/crainbramp/steam-dataset-2025-multi-modal-gaming-analytics
+for my data. It is data from steam, the video game platform. I used the data found in the CSV package part
+of the data. That part of the data amounted to almost 1 GB worth of data. 
+
+
+
+1. What is the rate of positive reviews for games that cost over $50 and were made after 2010.
+
+This category of games seems to have a lower positive review ratio than games as a whole. 
+
++---------------------+
+|positive_review_ratio|
++---------------------+
+|    0.727354136529586|
++---------------------+
++-------------+-----+
+|voted_up_real|count|
++-------------+-----+
+|         true|10559|
+|        false| 3958|
++-------------+-----+
+
+
+2. Do games with more achievements on steam receive more helpful reviews for their audience? Does this change by platform?
+
++-------------+--------------+------------------+
+|platform_name|ach_group     |avg_helpfulness   |
++-------------+--------------+------------------+
+|linux        |low (1-15)    |0.5007403132308168|
+|linux        |medium (16-45)|0.5016801070697916|
+|linux        |high (45+)    |0.5042478656078939|
+|mac          |low (1-15)    |0.5012553221484024|
+|mac          |medium (16-45)|0.5024616045479582|
+|mac          |high (45+)    |0.5047822079106056|
+|windows      |low (1-15)    |0.5040227727504581|
+|windows      |medium (16-45)|0.504939511715212 |
+|windows      |high (45+)    |0.5062133754085012|
++-------------+--------------+------------------+
+There seems to not be much variation between achievements groups or operating systems. A small change is consistent across platforms that 
+as achievements groups increase, there is a very slight increase in avg_helpfulness. 
+
+
+3. Do people give more positive reviews if they receive the game for free? :
+Which 5 games got the most reviews from people who received the game for free, and what was the positive 
+ratio of those reviews, and on average how much time did the player have at time of review. 
+
+Answer: 
++----------------------+---------------+----------------------+----------------------+
+|total_not_free_reviews|number_positive|avg_playtime (minutes)|overall_positive_ratio|
++----------------------+---------------+----------------------+----------------------+
+|515014                |401070         |1640.001829076491     |0.7787555289759114    |
++----------------------+---------------+----------------------+----------------------+
++------------------+---------------+----------------------+----------------------+
+|total_free_reviews|number_positive|avg_playtime (minutes)|overall_positive_ratio|
++------------------+---------------+----------------------+----------------------+
+|4579              |3764           |1727.7464511902162    |0.822013540074252     |
++------------------+---------------+----------------------+----------------------+
++-------+--------------------------------------------+------------------+---------------+----------------------+------------------+
+|appid  |name                                        |total_free_reviews|number_positive|avg_playtime (minutes)|positive_ratio    |
++-------+--------------------------------------------+------------------+---------------+----------------------+------------------+
+|252850 |Streamline                                  |19                |13             |132.31578947368422    |0.6842105263157895|
+|3286930|Heretic + Hexen                             |14                |14             |94.78571428571429     |1.0               |
+|558100 |Art of War: Red Tides                       |13                |13             |898.6153846153846     |1.0               |
+|2427420|S.T.A.L.K.E.R.: Clear Sky - Enhanced Edition|11                |3              |331.6363636363636     |0.2727272727272727|
+|1533390|Gorilla Tag                                 |11                |8              |3662.181818181818     |0.7272727272727273|
++-------+--------------------------------------------+------------------+---------------+----------------------+------------------+
+We can see here the 5 games that got the most reviews from people who got them for free. We also can see
+that the overall positive ratio for free games is about 4.5% higher than the overall positive ratio in general. 
+The average playtime at reviews overall is fairly even, but for some of the top games we can see lower amounts,
+showing a faster rate of positive reviews.
+This tells us that people who receive the game for free are more likely to give a positive review, thus
+their reviews may be influenced by receiving the game for free and less honest of the game itself. 
+
+4. Do people with more playtime at review receive more upvotes? What about funny votes? 
+Does this change based on the games release date?
+
++--------------+--------------+------------+---------------+-----------+
+|playtime_group|year_group    |avg_votes_up|avg_funny_votes|num_reviews|
++--------------+--------------+------------+---------------+-----------+
+|0-1 hours     |2005-2015     |3.9         |0.76           |12475      |
+|1-5 hours     |2005-2015     |2.52        |0.47           |17178      |
+|10-20 hours   |2005-2015     |1.36        |0.22           |8236       |
+|5-10 hours    |2005-2015     |1.54        |0.25           |9611       |
+|over 20 hours |2005-2015     |1.96        |0.42           |13483      |
+|0-1 hours     |2016 and after|2.98        |0.91           |130973     |
+|1-5 hours     |2016 and after|1.82        |0.34           |146574     |
+|10-20 hours   |2016 and after|1.33        |0.21           |46367      |
+|5-10 hours    |2016 and after|1.38        |0.23           |59483      |
+|over 20 hours |2016 and after|1.87        |0.31           |69830      |
+|0-1 hours     |Pre 2005      |0.73        |0.0            |11         |
+|1-5 hours     |Pre 2005      |0.64        |0.07           |28         |
+|10-20 hours   |Pre 2005      |0.5         |0.03           |38         |
+|5-10 hours    |Pre 2005      |0.28        |0.04           |25         |
+|over 20 hours |Pre 2005      |0.26        |0.02           |101        |
++--------------+--------------+------------+---------------+-----------+
+
+We can see that Pre 2005 release games have very low number of reviews so it is not to insightful.
+However, the other 2 year groups give some good data. Average Up Votes was higher between 2005-2015 than 2016 and after.
+This could be due to there being more reviews overall and this could bring down the overall average per review for upvotes.
+The number of funny votes is fairly similar between those two year groups again. 
+It seems that the people who get the most funny votes and helpful upvotes are in the sub 1 hour amount of playtime
+category. This is surprising since you would imagine people with more time on the game could be more helpful.
