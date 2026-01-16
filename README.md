@@ -14,3 +14,5 @@ The dataset consists of Steam game data (publisher, release dates, generes) and 
 - Engineer new features to improve analysis.
 ### Step 3: Aggregations & Queries
 - Aggregate the filtered data to answer specific questions and get a certain output
+## Results
+- A full question and answer document can be found at: https://github.com/mitchellaldridge/PySpark-Scala-Steam-Review-Analysis/blob/master/PySpark/Q%26A.txt
